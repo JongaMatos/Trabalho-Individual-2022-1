@@ -9,7 +9,9 @@ jobs:
         run:
           working-directory: ./library_front
       steps:
+
       - uses: actions/checkout@v3
+
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
@@ -18,5 +20,29 @@ jobs:
       - name: Npm Install 
         run: npm install
 
-      - name: ESLint check
+      - name: Front Lint check
         run: npm run lint
+
+
+    server_lint:
+      runs-on: ubuntu-latest
+      defaults:
+        run:
+          working-directory: ./library_back
+
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Setup Python ${{ matrix.python-version }}
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.8
+
+        - name: Pip Install requirements
+          run: |
+            pip install -r requirements.txt
+            
+        - name: Server Lint Check
+          run: |
+            pylint ./**/*.py
