@@ -1,5 +1,5 @@
 name: CI_Tests
-    on: [push]
+on: [push]
         jobs:
 
             server_tests:
