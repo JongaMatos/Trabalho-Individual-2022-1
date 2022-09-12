@@ -3,7 +3,7 @@ name: CI_Lint
 on: [push]
 
 jobs:
-    front_eslint:
+    front_lint:
       runs-on: ubuntu-latest
       defaults:
         run:
@@ -42,7 +42,7 @@ jobs:
         - name: Pip Install requirements
           run: |
             pip install -r requirements.txt
-            
+
         - name: Server Lint Check
           run: |
             pylint ./**/*.py

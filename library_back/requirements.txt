@@ -1,3 +1,4 @@
+pylint==2.15.0
 asgiref==3.5.2
 cffi==1.15.1
 cryptography==37.0.4
