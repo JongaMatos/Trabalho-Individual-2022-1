@@ -1,6 +1,15 @@
 version: '3.5'
 services:
-    
+    db:
+        container_name: library_database
+        image: postgres:latest
+        environment:
+            - POSTGRES_DB=${POSTGRES_DB}
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        ports:
+        - '5432:5432'
+
     front: 
         build: front
         environment:
@@ -8,9 +17,7 @@ services:
         volumes: 
             - ./library_front:/app
             - ./library_front/node_modules:/app/node_modules
-        container_name: frontend_pomodorc
-        build:
-            context: ./library_front
+        container_name: library_front
         command: npm start
         ports:
             - "3000:3000"
