@@ -30,17 +30,17 @@ jobs:
 
                 steps:
                     - name: Checkout code
-                    uses: actions/checkout@v2
+                      uses: actions/checkout@v2
                     - name: Setup Python ${{ matrix.python-version }}
-                    uses: actions/setup-python@v2
-                    with:
+                      uses: actions/setup-python@v2
+                      with:
                         python-version: 3.8
                     - name: pip install requirements
-                    run: |
+                      run: |
                         pip install -r requirements.txt
-                    - name: Tests
 
-                    env:
+                    - name: Tests
+                      env:
                         DEBUG: "0"
                         DB_USERNAME: ${{ env.POSTGRES_USER }}
                         DB_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
@@ -48,7 +48,7 @@ jobs:
                         DB_DATABASE: ${{ env.POSTGRES_DB }}
                         DB_PORT: ${{ env.POSTGRES_PORT }}
 
-                    run: |
+                      run: |
                         python manage.py makemigrations
                         python manage.py migrate
                         python manage.py test
@@ -57,17 +57,17 @@ jobs:
                 runs-on: ubuntu-latest
                 defaults:
                     run:
-                    working-directory: ./library_front
+                        working-directory: ./library_front
 
                 steps:
                 - uses: actions/checkout@v3
                 - name: Node.js setup
-                    uses: actions/setup-node@v3
-                    with:
+                  uses: actions/setup-node@v3
+                  with:
                     node-version: 16.x
 
                 - name: Install
-                    run: npm install
+                  run: npm install
 
                 - name: Test
-                    run: npm run test
+                  run: npm run test
