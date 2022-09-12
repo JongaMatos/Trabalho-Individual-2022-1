@@ -10,12 +10,12 @@ jobs:
           working-directory: ./library_front
       steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js 14.x
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14.x
+          node-version: 16.x
     
-      - name: Install Dependencies
+      - name: Npm Install 
         run: npm install
 
       - name: ESLint check
