@@ -62,4 +62,4 @@ jobs:
         context: ./library_front
         file: ./library_front/Dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/trabalho-individual-2022-1-front:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/trabalho-individual-2022-1-front:latest
