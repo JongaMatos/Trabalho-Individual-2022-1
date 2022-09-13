@@ -1,4 +1,4 @@
-name: Build
+name: CI_Build
 
 on: 
   workflow_run: 
@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success'}}
+    # if: ${{ github.event.workflow_run.conclusion == 'success'}}
     defaults:
       run:
         working-directory: ./
