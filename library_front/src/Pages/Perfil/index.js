@@ -13,7 +13,7 @@ const Perfil = () => {
       };
 
     useEffect(() => {
-        resBooks();
+        resBooks();// eslint-disable-next-line
       }, [sessionStorage.getItem('app-token')]);
 
       const listBooks = books.map((book) =>
