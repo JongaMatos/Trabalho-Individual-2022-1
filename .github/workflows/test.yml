@@ -15,7 +15,7 @@ jobs:
                     POSTGRES_DB: library_db
                     POSTGRES_USER: postgres
                     POSTGRES_PASSWORD: password
-                    POSTGRES_HOST: "library_db"
+                    POSTGRES_HOST: db
                     POSTGRES_PORT: 5432
 
                 services:
@@ -39,7 +39,7 @@ jobs:
                       run: |
                         pip install -r requirements.txt
 
-                    - name: Tests
+                    - name: db
                       env:
                         DEBUG: "0"
                         DB_USERNAME: ${{ env.POSTGRES_USER }}
