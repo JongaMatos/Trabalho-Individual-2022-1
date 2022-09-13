@@ -15,7 +15,7 @@ jobs:
                     POSTGRES_DB: library_db
                     POSTGRES_USER: postgres
                     POSTGRES_PASSWORD: password
-                    POSTGRES_HOST: db
+                    POSTGRES_HOST: localhost
                     POSTGRES_PORT: 5432
 
                 services:
